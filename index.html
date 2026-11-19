@@ -1,0 +1,195 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#090b18">
+<title>المربع | العبوا سوا</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Alexandria:wght@400;500;600;700;800;900&display=swap');
+:root{--bg:#090b18;--panel:#12162a;--panel2:#191f38;--text:#f6f7ff;--muted:#a5abc5;--pink:#ff4f9a;--cyan:#54e4e2;--gold:#ffd36a;--line:#ffffff16}
+*{box-sizing:border-box}body{margin:0;background:radial-gradient(ellipse at 80% -10%,#38205d 0,transparent 35%),radial-gradient(ellipse at 0% 30%,#10394a 0,transparent 30%),var(--bg);color:var(--text);font-family:Alexandria,system-ui,sans-serif;min-height:100vh}
+button{font:inherit;cursor:pointer;border:0;color:inherit}.wrap{max-width:1180px;margin:auto;padding:22px}
+nav{display:flex;align-items:center;justify-content:space-between;gap:15px;padding:10px 0 28px}.brand{display:flex;align-items:center;gap:12px;font-weight:900;font-size:21px}.logo{width:46px;height:46px;border-radius:15px;display:grid;place-items:center;background:linear-gradient(135deg,var(--pink),#8b5cff 60%,var(--cyan));box-shadow:0 8px 30px #b33dba55;font-size:23px}.navright{display:flex;align-items:center;gap:10px}.pill{background:#ffffff0d;border:1px solid var(--line);padding:10px 15px;border-radius:99px;color:var(--muted);font-size:12px}.profile{background:linear-gradient(135deg,#262c49,#171b30);border:1px solid var(--line);padding:10px 15px;border-radius:99px;font-size:12px}
+.hero{position:relative;overflow:hidden;border:1px solid #ffffff20;border-radius:30px;padding:42px;background:linear-gradient(110deg,#1b2440eF,#311b4be8 55%,#182e43ee);box-shadow:0 24px 70px #0005}.hero:after{content:"🎮";position:absolute;left:7%;top:8%;font-size:130px;opacity:.12;transform:rotate(-18deg)}.eyebrow{color:var(--cyan);font-size:12px;font-weight:700;letter-spacing:1px}.hero h1{font-size:clamp(34px,6vw,62px);line-height:1.2;margin:15px 0 12px;font-weight:900;max-width:700px}.gradient{background:linear-gradient(90deg,var(--cyan),#fff,var(--pink));background-clip:text;color:transparent}.hero p{color:#c2c8df;max-width:620px;line-height:2;font-size:14px}.actions{display:flex;gap:12px;flex-wrap:wrap;margin-top:24px}.primary,.secondary{padding:14px 21px;border-radius:14px;font-weight:700;font-size:13px;transition:.2s}.primary{background:linear-gradient(110deg,var(--pink),#945bff);box-shadow:0 9px 25px #d13e9b45}.secondary{background:#ffffff12;border:1px solid #ffffff22}.primary:hover,.secondary:hover,.game:hover{transform:translateY(-3px)}
+.stats{display:flex;gap:28px;margin-top:28px;flex-wrap:wrap}.stat b{display:block;font-size:20px}.stat span{font-size:11px;color:var(--muted)}
+.sectionhead{display:flex;align-items:end;justify-content:space-between;margin:42px 0 18px;gap:15px}.sectionhead h2{font-size:23px;margin:0 0 7px}.sectionhead p{color:var(--muted);font-size:12px;margin:0}.filters{display:flex;gap:8px;flex-wrap:wrap}.filter{background:#ffffff0c;border:1px solid var(--line);padding:9px 13px;border-radius:99px;color:var(--muted);font-size:11px}.filter.active{background:#ff4f9a22;color:#ff8fbd;border-color:#ff4f9a66}
+.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}.game{background:linear-gradient(145deg,#171c33,#101426);border:1px solid var(--line);border-radius:22px;padding:17px;transition:.2s;min-height:205px;position:relative;overflow:hidden}.game:before{content:"";position:absolute;width:130px;height:130px;border-radius:50%;background:var(--glow,#ff4f9a);filter:blur(65px);opacity:.18;left:-30px;top:-35px}.game>*{position:relative}.game-top{display:flex;justify-content:space-between;align-items:center}.game-icon{width:55px;height:55px;border-radius:17px;display:grid;place-items:center;font-size:27px;background:linear-gradient(135deg,#ffffff20,#ffffff08);border:1px solid #ffffff16}.tag{font-size:10px;color:var(--cyan);background:#54e4e21a;padding:7px 10px;border-radius:99px}.game h3{font-size:16px;margin:17px 0 7px}.game p{font-size:11px;color:var(--muted);line-height:1.9;margin:0 0 17px}.game-foot{display:flex;justify-content:space-between;align-items:center;color:#8e96b5;font-size:10px}.play{background:#ffffff12;padding:9px 13px;border-radius:10px;color:#fff;font-size:11px}
+.daily{margin-top:35px;padding:22px;border:1px solid #ffd36a44;border-radius:22px;background:linear-gradient(100deg,#5c43201c,#251e38);display:flex;align-items:center;justify-content:space-between;gap:20px}.daily h3{margin:0 0 6px}.daily p{margin:0;color:var(--muted);font-size:11px;line-height:1.8}.daily .primary{white-space:nowrap}
+footer{text-align:center;color:#747c9b;font-size:10px;padding:40px 0 20px}
+.modal{position:fixed;inset:0;background:#050611d9;backdrop-filter:blur(12px);z-index:5;display:none;align-items:center;justify-content:center;padding:16px}.modal.show{display:flex}.box{width:min(620px,100%);max-height:90vh;overflow:auto;background:linear-gradient(145deg,#1b2140,#101426);border:1px solid #ffffff24;border-radius:25px;padding:24px;box-shadow:0 30px 90px #0009}.modalhead{display:flex;justify-content:space-between;align-items:center;margin-bottom:15px}.modalhead h2{font-size:20px;margin:0}.close{width:36px;height:36px;border-radius:11px;background:#ffffff12;font-size:20px}.question{color:var(--muted);font-size:12px;line-height:1.9}.visual{height:210px;border-radius:19px;background:linear-gradient(135deg,#2c3159,#58375d);display:grid;place-items:center;font-size:100px;margin:18px 0;border:1px solid #ffffff18}.answers{display:grid;grid-template-columns:1fr 1fr;gap:10px}.answer{background:#ffffff0d;border:1px solid #ffffff18;border-radius:13px;padding:13px;font-size:12px}.answer:hover{border-color:var(--cyan);background:#54e4e21a}.answer.correct{background:#1c9e7440;border-color:#42d6a4}.answer.wrong{background:#c43c5b35;border-color:#ff6381}.feedback{min-height:28px;font-size:12px;color:var(--gold);margin-top:13px}.modal-actions{display:flex;gap:9px;margin-top:10px}.input{width:100%;padding:14px;border:1px solid var(--line);background:#ffffff0d;border-radius:13px;color:white;font:inherit;margin:10px 0}.bigword{text-align:center;font-size:28px;font-weight:900;padding:25px 0}.timer{text-align:center;color:var(--cyan);font-size:12px;margin:8px}
+@media(max-width:850px){.grid{grid-template-columns:repeat(2,1fr)}.hero{padding:30px}.hero:after{font-size:90px}}@media(max-width:560px){.wrap{padding:15px}.grid{grid-template-columns:1fr}.hero{padding:25px 20px}.navright .pill{display:none}.sectionhead{align-items:start;flex-direction:column}.daily{align-items:start;flex-direction:column}.answers{grid-template-columns:1fr 1fr}.visual{height:170px}}
+
+.room-panel{margin-top:30px;padding:24px;border-radius:25px;border:1px solid #ffffff20;background:linear-gradient(120deg,#17213a,#211a38)}
+.room-head{display:flex;justify-content:space-between;gap:15px;align-items:center;flex-wrap:wrap}.room-head h2{margin:0 0 6px;font-size:21px}.room-head p{margin:0;color:var(--muted);font-size:11px;line-height:1.8}
+.room-actions{display:flex;gap:9px;flex-wrap:wrap}.room-actions button{font-size:12px}
+.room-list{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:20px}
+.room-card{border:1px solid var(--line);background:#ffffff09;border-radius:17px;padding:15px;min-width:0}
+.room-card h3{font-size:14px;margin:0 0 7px}.room-card p{color:var(--muted);font-size:10px;margin:0 0 12px}
+.avatar-choice{display:flex;gap:9px;flex-wrap:wrap;margin:12px 0}
+.avatar{width:43px;height:43px;border-radius:14px;background:#ffffff12;border:1px solid #ffffff18;display:grid;place-items:center;font-size:24px;cursor:pointer}
+.avatar.selected{border:2px solid var(--cyan);background:#54e4e222;box-shadow:0 0 16px #54e4e233}
+.room-code{font-size:23px;font-weight:900;letter-spacing:5px;color:var(--cyan);background:#0003;border:1px dashed #54e4e266;border-radius:13px;padding:13px;text-align:center;margin:12px 0}
+.member{display:flex;align-items:center;gap:9px;background:#ffffff09;padding:9px;border-radius:12px;font-size:11px;margin:7px 0}.member span:first-child{font-size:22px}.member small{color:var(--muted);margin-right:auto}
+.voice-box{border:1px solid #54e4e244;background:#54e4e20b;border-radius:16px;padding:15px;margin-top:14px}
+.voice-box p{font-size:11px;color:var(--muted);line-height:1.9;margin:6px 0 12px}
+.voice-controls{display:flex;gap:8px;flex-wrap:wrap}.voice-controls button{padding:10px 13px;border-radius:11px;background:#ffffff12;font-size:11px}
+.notice{font-size:10px;color:#e8c987;line-height:1.9;margin-top:12px}
+@media(max-width:750px){.room-list{grid-template-columns:1fr}.room-panel{padding:18px}}
+
+.account-panel,.shared-panel{margin-top:24px;padding:22px;border:1px solid var(--line);border-radius:22px;background:linear-gradient(135deg,#171c33,#121426)}
+.account-row{display:grid;grid-template-columns:1fr 1fr;gap:10px}.account-row .input{margin:4px 0}
+.chatlog{height:130px;overflow:auto;background:#080b18;border:1px solid var(--line);border-radius:12px;padding:10px;font-size:11px;line-height:2;margin:12px 0}
+.smallmuted{font-size:10px;color:var(--muted);line-height:1.9}
+.controlrow{display:flex;gap:9px;flex-wrap:wrap;align-items:center;margin-top:12px}
+.controlrow select,.controlrow input{background:#0b1020;color:white;border:1px solid var(--line);border-radius:10px;padding:10px;font:inherit;font-size:11px}
+@media(max-width:560px){.account-row{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<div class="wrap">
+<nav><div class="brand"><div class="logo">✦</div><div>المربع <span style="color:var(--pink)">.</span></div></div><div class="navright"><div class="pill">● الألعاب تعمل مباشرة</div><div class="profile">👤 لاعب جديد</div></div></nav>
+<section class="hero"><div class="eyebrow">✦ جمعتكم تبدأ من هنا</div><h1>جمّع أصحابك في <span class="gradient">المربع!</span></h1><p>سوّوا مجموعتكم، شاركوا رمز الدخول، والعبوا تحديات التخمين والذكاء والوناسة مع بعض.</p><div class="actions"><button class="primary" onclick="createRoom()">أنشئ مجموعة ←</button><button class="secondary" onclick="document.getElementById('games').scrollIntoView({behavior:'smooth'})">استكشف الألعاب</button></div><div class="stats"><div class="stat"><b>23+</b><span>ألعاب متنوعة</span></div><div class="stat"><b>∞</b><span>إعادة لعب</span></div><div class="stat"><b>⚡</b><span>تحديات سريعة</span></div></div></section>
+<div class="sectionhead" id="games"><div><h2>اختر تحدّيك 🎯</h2><p>كل لعبة لها جوّها… وش بتختار اليوم؟</p></div><div class="filters"><button class="filter active" onclick="filterGames('all',this)">الكل</button><button class="filter" onclick="filterGames('guess',this)">تخمين</button><button class="filter" onclick="filterGames('mind',this)">ذكاء</button><button class="filter" onclick="filterGames('fun',this)">وناسة</button></div></div>
+<div class="grid" id="grid">
+<article class="game" data-cat="guess" style="--glow:#ff4f9a"><div class="game-top"><div class="game-icon">🖼️</div><span class="tag">الأكثر لعباً</span></div><h3>خمن الصورة</h3><p>شوف الإيموجي وحاول تعرف الشيء أو المكان أو الشخصية.</p><div class="game-foot"><span>🎯 10 أسئلة</span><button class="play" onclick="openGame('picture')">العب الآن ←</button></div></article>
+<article class="game" data-cat="mind" style="--glow:#54e4e2"><div class="game-top"><div class="game-icon">🧠</div><span class="tag">اختبر عقلك</span></div><h3>فزورة في 10 ثواني</h3><p>ألغاز تحتاج تركيز وسرعة تفكير. لا تستعجل بالإجابة!</p><div class="game-foot"><span>⏱️ تحدي وقت</span><button class="play" onclick="openGame('riddle')">العب الآن ←</button></div></article>
+<article class="game" data-cat="fun" style="--glow:#ffd36a"><div class="game-top"><div class="game-icon">🤔</div><span class="tag">مضحكة</span></div><h3>وش تختار؟</h3><p>اختيارات مستحيلة وغريبة… لازم تختار واحد فقط.</p><div class="game-foot"><span>😂 أسئلة عشوائية</span><button class="play" onclick="openGame('choice')">العب الآن ←</button></div></article>
+<article class="game" data-cat="guess" style="--glow:#a77aff"><div class="game-top"><div class="game-icon">🔤</div><span class="tag">خمنها</span></div><h3>رتّب الحروف</h3><p>الحروف متلخبطة، رتّبها واكتشف الكلمة الصحيحة.</p><div class="game-foot"><span>✍️ كلمات متنوعة</span><button class="play" onclick="openGame('letters')">العب الآن ←</button></div></article>
+<article class="game" data-cat="mind" style="--glow:#54a4ff"><div class="game-top"><div class="game-icon">🧩</div><span class="tag">تركيز</span></div><h3>مين المختلف؟</h3><p>اكتشف العنصر المختلف بين مجموعة متشابهة.</p><div class="game-foot"><span>👀 دقة ملاحظة</span><button class="play" onclick="openGame('odd')">العب الآن ←</button></div></article>
+<article class="game" data-cat="fun" style="--glow:#ff7b54"><div class="game-top"><div class="game-icon">⚡</div><span class="tag">سرعة</span></div><h3>جاوب بسرعة</h3><p>أسئلة خاطفة، جاوب قبل ما يخلص الوقت!</p><div class="game-foot"><span>🔥 15 ثانية</span><button class="play" onclick="openGame('fast')">العب الآن ←</button></div></article>
+<article class="game" data-cat="guess" style="--glow:#ed6bd5"><div class="game-top"><div class="game-icon">🎬</div><span class="tag">سينما</span></div><h3>خمن الفيلم</h3><p>رموز وإشارات تدل على فيلم أو قصة معروفة.</p><div class="game-foot"><span>🍿 لمحبي الأفلام</span><button class="play" onclick="openGame('movie')">العب الآن ←</button></div></article>
+<article class="game" data-cat="mind" style="--glow:#8edb73"><div class="game-top"><div class="game-icon">🔢</div><span class="tag">رياضيات</span></div><h3>الرقم السري</h3><p>خمن الرقم الصحيح من خلال تلميحات المحاولات.</p><div class="game-foot"><span>🔐 لغز أرقام</span><button class="play" onclick="openGame('number')">العب الآن ←</button></div></article>
+</div>
+
+<section class="room-panel" id="rooms">
+ <div class="room-head"><div><h2>مجموعاتكم 🎉</h2><p>أنشئ مربع خاص فيكم وشارك الرمز مع أصحابك.</p></div>
+ <div class="room-actions"><button class="primary" onclick="createRoom()">＋ إنشاء مجموعة</button><button class="secondary" onclick="joinRoomPrompt()">دخول برمز</button></div></div>
+ <div class="room-list" id="roomList"><div class="room-card"><h3>ما عندك مجموعة للحين</h3><p>أنشئ مجموعة وابدأ التحدي مع أصحابك.</p></div></div>
+ <div id="activeRoom"></div>
+</section>
+
+<section class="account-panel" id="accountPanel">
+ <div class="room-head"><div><h2>حسابك في المربع 👤</h2><p>اختر اسم لاعب مميز واحفظ ملفك على هذا المتصفح.</p></div><span class="tag">ملف لاعب محلي</span></div>
+ <div id="accountArea"></div>
+</section>
+<section class="shared-panel">
+ <div class="room-head"><div><h2>إعدادات اللعب الجماعي ⚙️</h2><p>جهّز الجولة قبل البداية.</p></div></div>
+ <div class="controlrow">
+  <label class="smallmuted">عدد اللاعبين <select id="playerCount"><option>2</option><option>3</option><option>4</option><option>5</option><option>6</option><option>8</option><option>10</option><option>12</option><option>16</option><option>20</option></select></label>
+  <label class="smallmuted">عدد الجولات <select id="roundCount"><option>5</option><option>10</option><option>15</option><option>20</option></select></label>
+  <label class="smallmuted">مدة الجولة <select id="roundTimer"><option value="15">15 ثانية</option><option value="30">30 ثانية</option><option value="45">45 ثانية</option><option value="60">60 ثانية</option></select></label>
+  <label class="smallmuted">نمط اللعب <select id="teamMode"><option value="solo">كل لاعب لنفسه</option><option value="teams">فرق</option></select></label>
+ </div>
+ <p class="smallmuted">هذه الإعدادات تحفظ اختيارك في هذه الصفحة. تزامنها بين أجهزة الأصدقاء يتطلب ربطاً بخادم.</p>
+</section>
+<section class="daily"><div><h3>🏆 تحدي اليوم</h3><p>كم سؤال تقدر تجاوب صح بدون ما تغلط؟ ابدأ واجمع نقاطك وحاول تحطم رقمك!</p></div><button class="primary" onclick="openGame('fast')">أقبل التحدي</button></section>
+<footer>المربع © 2026 — جمعتكم أحلى هنا ✦</footer>
+</div>
+<div class="modal" id="modal" onclick="if(event.target===this)closeGame()"><div class="box"><div class="modalhead"><h2 id="gameTitle">اللعبة</h2><button class="close" onclick="closeGame()">×</button></div><div id="gameBody"></div></div></div>
+<script>
+const $=id=>document.getElementById(id);let current='',idx=0,score=0,timer=null,secret=0;
+const pictures=[
+['🍕','بيتزا',['بيتزا','برغر','كعكة','خبز'],0],['🦁','أسد',['نمر','أسد','ذئب','فهد'],1],['🚀','صاروخ',['طائرة','قمر','صاروخ','قمر صناعي'],2],['🏰','قلعة',['قصر','قلعة','مدرسة','متحف'],1],['🐪','جمل',['حصان','غزال','جمل','بقرة'],2],['🎸','قيثارة',['كمان','عود','قيثارة','طبلة'],2],['🌋','بركان',['جبل','بركان','جزيرة','كهف'],1],['🦉','بومة',['نسر','ببغاء','بومة','حمامة'],2],['🍉','بطيخ',['شمام','تفاح','بطيخ','فراولة'],2],['🛸','طبق طائر',['طائرة','قمر','طبق طائر','منطاد'],2]];
+const riddles=[['شيء كلما أخذت منه كبر، ما هو؟','الحفرة',['الحفرة','البئر','العمر','الجبل']],['له أسنان ولا يعض، ما هو؟','المشط',['المنشار','المشط','الأسد','المفتاح']],['يمشي بلا قدمين ويبكي بلا عينين، ما هو؟','السحاب',['النهر','السحاب','الطفل','الساعة']],['ما الشيء الذي يكتب ولا يقرأ؟','القلم',['الكتاب','القلم','الدفتر','الحاسوب']]];
+const choices=[['تقدر تطير لمدة ساعة أو تختفي لمدة 10 دقائق؟','تطير','تختفي'],['تعيش بدون ألعاب أو بدون حلويات؟','بدون ألعاب','بدون حلويات'],['تقرأ أفكار الناس أو تتكلم كل اللغات؟','تقرأ الأفكار','كل اللغات'],['تسافر للماضي أو للمستقبل؟','الماضي','المستقبل']];
+const letters=[['ةرساي','سيارة'],['بوساح','حاسوب'],['ةرجش','شجرة'],['باتك','كتاب'],['رحب','بحر']];
+const odd=[['🍎','🍎','🍎','🍐','🍎'],['🐶','🐶','🐱','🐶','🐶'],['⭐','⭐','🌟','⭐','⭐'],['🚗','🚗','🚙','🚗','🚗']];
+const fast=[['كم عدد أيام الأسبوع؟',['5','6','7','8'],2],['ما عاصمة السعودية؟',['جدة','الرياض','مكة','الدمام'],1],['كم ضلعاً للمثلث؟',['2','3','4','5'],1],['ما الكوكب الأحمر؟',['الأرض','الزهرة','المريخ','زحل'],2],['كم دقيقة في الساعة؟',['30','60','90','100'],1]];
+const movies=[['🦁👑','الأسد الملك',['الأسد الملك','البحث عن نيمو','علاء الدين','طرزان'],0],['❄️👸⛄','فروزن',['موانا','فروزن','شريك','سندريلا'],1],['🐠🌊🔍','البحث عن نيمو',['البحث عن نيمو','فروزن','راتاتوي','كوكو'],0]];
+function openGame(type){current=type;idx=0;score=0;clearInterval(timer);$('modal').classList.add('show');render()}
+function closeGame(){clearInterval(timer);$('modal').classList.remove('show')}
+function header(t,desc=''){ $('gameTitle').textContent=t; $('gameBody').innerHTML=desc?`<p class="question">${desc}</p>`:''}
+function result(ok,msg=''){if(ok)score++;$('feedback').textContent=msg+(ok?' ✓ +1 نقطة':' ✕ حاول مرة ثانية');}
+function nextButton(label='السؤال التالي'){return `<div class="modal-actions"><button class="primary" onclick="nextQuestion()">${label} ←</button><button class="secondary" onclick="closeGame()">إنهاء</button></div>`}
+function finish(){ $('gameBody').innerHTML=`<div class="visual">🏆</div><h2 style="text-align:center">خلصت الجولة!</h2><p class="question" style="text-align:center">نتيجتك: ${score} من ${current==='picture'?10:current==='fast'?5:current==='movie'?3:4}</p><div class="modal-actions"><button class="primary" onclick="openGame('${current}')">العب مرة ثانية</button><button class="secondary" onclick="closeGame()">إغلاق</button></div>`}
+function render(){clearInterval(timer);
+if(current==='picture'||current==='movie'){let arr=current==='picture'?pictures:movies;if(idx>=arr.length)return finish();let q=arr[idx];header(current==='picture'?'خمن الصورة':'خمن الفيلم',`السؤال ${idx+1} من ${arr.length} — اختر الإجابة الصحيحة`);$('gameBody').innerHTML+=`<div class="visual">${q[0]}</div><div class="answers">${q[2].map((a,i)=>`<button class="answer" onclick="pick(this,${i===q[3]})">${a}</button>`).join('')}</div><div class="feedback" id="feedback"></div>${nextButton()}`;return}
+if(current==='riddle'){if(idx>=riddles.length)return finish();let q=riddles[idx];header('فزورة في 10 ثواني',`لغز ${idx+1} من ${riddles.length}`);$('gameBody').innerHTML+=`<div class="visual" style="font-size:55px">❓</div><p style="text-align:center;font-size:17px;line-height:2">${q[0]}</p><div class="answers">${q[2].map(a=>`<button class="answer" onclick="pick(this,${a===q[1]})">${a}</button>`).join('')}</div><div class="feedback" id="feedback"></div>${nextButton()}`;return}
+if(current==='choice'){if(idx>=choices.length)return finish();let q=choices[idx];header('وش تختار؟',`السؤال ${idx+1} من ${choices.length} — ما فيه إجابة غلط!`);$('gameBody').innerHTML+=`<div class="visual">🤯</div><p style="text-align:center;line-height:2">${q[0]}</p><div class="answers"><button class="answer" onclick="choicePick('${q[1]}')">${q[1]}</button><button class="answer" onclick="choicePick('${q[2]}')">${q[2]}</button></div><div class="feedback" id="feedback"></div>${nextButton()}`;return}
+if(current==='letters'){if(idx>=letters.length)return finish();let q=letters[idx];header('رتّب الحروف',`الكلمة ${idx+1} من ${letters.length}`);$('gameBody').innerHTML+=`<div class="visual" style="font-size:43px;letter-spacing:7px">${q[0]}</div><input class="input" id="word" placeholder="اكتب الكلمة هنا"><div class="feedback" id="feedback"></div><button class="primary" onclick="checkWord('${q[1]}')">تحقق من الإجابة</button>${nextButton()}`;return}
+if(current==='odd'){if(idx>=odd.length)return finish();let q=odd[idx],answer=q.findIndex((v,i)=>q.indexOf(v)===i&&q.lastIndexOf(v)===i);header('مين المختلف؟',`التحدي ${idx+1} من ${odd.length} — اضغط على المختلف`);$('gameBody').innerHTML+=`<div class="visual" style="font-size:48px;display:flex;gap:13px;flex-wrap:wrap">${q.map((v,i)=>`<button class="answer" style="font-size:34px;padding:12px" onclick="pick(this,${i===answer})">${v}</button>`).join('')}</div><div class="feedback" id="feedback"></div>${nextButton()}`;return}
+if(current==='fast'){if(idx>=fast.length)return finish();let q=fast[idx];header('جاوب بسرعة ⚡',`السؤال ${idx+1} من ${fast.length}`);$('gameBody').innerHTML+=`<div class="timer" id="timer">15 ثانية</div><div class="visual" style="font-size:25px;text-align:center;padding:20px">${q[0]}</div><div class="answers">${q[1].map((a,i)=>`<button class="answer" onclick="pick(this,${i===q[2]})">${a}</button>`).join('')}</div><div class="feedback" id="feedback"></div>${nextButton()}`;let left=15;timer=setInterval(()=>{left--;$('timer').textContent=left+' ثانية';if(left<=0){clearInterval(timer);$('feedback').textContent='انتهى الوقت!';document.querySelectorAll('.answer').forEach(b=>b.disabled=true)}},1000);return}
+if(current==='number'){secret=Math.floor(Math.random()*20)+1;header('الرقم السري 🔐','اختر رقمًا من 1 إلى 20. عندك 5 محاولات.');$('gameBody').innerHTML+=`<div class="visual">🔢</div><input class="input" id="guess" type="number" min="1" max="20" placeholder="اكتب رقمك"><button class="primary" onclick="guessNumber()">جرّب</button><div class="feedback" id="feedback"></div><p class="question" id="tries">المحاولات المتبقية: 5</p>`;window.tries=5;return}
+}
+function pick(btn,ok){document.querySelectorAll('.answer').forEach(b=>b.disabled=true);btn.classList.add(ok?'correct':'wrong');if(ok)result(true,'إجابة صحيحة!');else{result(false,'الإجابة غير صحيحة');}}
+function choicePick(a){$('feedback').textContent='اختيارك: '+a+' 😎';}
+function checkWord(a){let v=$('word').value.trim();result(v===a,v===a?'ممتاز!':'مو هي، جرّب مرة ثانية');}
+function guessNumber(){let n=Number($('guess').value);if(!n||n<1||n>20)return;$('feedback').textContent=n===secret?'🎉 صح عليك! الرقم هو '+secret:n<secret?'⬆️ الرقم أكبر':'⬇️ الرقم أصغر';window.tries--; $('tries').textContent='المحاولات المتبقية: '+window.tries;if(n===secret){score=1;$('feedback').textContent+=' — فزت!';}else if(window.tries<=0)$('feedback').textContent='انتهت المحاولات! الرقم كان '+secret;}
+function nextQuestion(){idx++;render()}
+function filterGames(cat,btn){document.querySelectorAll('.filter').forEach(x=>x.classList.remove('active'));btn.classList.add('active');document.querySelectorAll('.game').forEach(g=>g.style.display=cat==='all'||g.dataset.cat===cat?'':'none')}
+
+const avatarSet=['🦊','🐼','🐸','🐯','🐲','🦁','🐵','🐧','🐙','🐺','👾','🤖','🧙','🥷','🦄','🐻'];
+let myAvatar='🦊', rooms=JSON.parse(localStorage.getItem('almoraba_rooms')||'[]'), activeRoomId=null, localStream=null;
+function saveRooms(){localStorage.setItem('almoraba_rooms',JSON.stringify(rooms));}
+function makeCode(){return Math.random().toString(36).slice(2,7).toUpperCase();}
+function createRoom(){const name=prompt('سمّ مجموعتك:','شلة الوناسة');if(name===null)return;const room={id:makeCode(),name:name.trim()||'مجموعتنا',members:[{name:'أنا',avatar:myAvatar}],created:Date.now()};rooms.unshift(room);activeRoomId=room.id;saveRooms();renderRooms();showRoom(room.id);}
+function joinRoomPrompt(){const code=prompt('اكتب رمز المجموعة:');if(!code)return;const room=rooms.find(r=>r.id===code.trim().toUpperCase());if(!room){alert('ما لقينا المجموعة بهذا الرمز على هذا الجهاز. مشاركة المجموعات بين الأجهزة تحتاج ربط قاعدة بيانات.');return;}showRoom(room.id);}
+function renderRooms(){const el=document.getElementById('roomList');if(!rooms.length){el.innerHTML='<div class="room-card"><h3>ما عندك مجموعة للحين</h3><p>أنشئ مجموعة وابدأ التحدي مع أصحابك.</p></div>';return;}el.innerHTML=rooms.map(r=>`<div class="room-card"><h3>🎮 ${escapeHtml(r.name)}</h3><p>${r.members.length} لاعب · رمز المجموعة</p><div class="room-code">${r.id}</div><div class="room-actions"><button class="play" onclick="showRoom('${r.id}')">فتح المجموعة</button><button class="play" onclick="copyRoom('${r.id}')">نسخ الرمز</button></div></div>`).join('');}
+function escapeHtml(s){return String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));}
+function copyRoom(code){if(navigator.clipboard)navigator.clipboard.writeText(code).then(()=>alert('تم نسخ الرمز: '+code));else prompt('انسخ الرمز:',code);}
+function showRoom(id){const r=rooms.find(x=>x.id===id);if(!r)return;activeRoomId=id;document.getElementById('activeRoom').innerHTML=`
+<div class="room-card" style="margin-top:15px"><div class="room-head"><div><h3>✨ ${escapeHtml(r.name)}</h3><p>أرسل الرمز لأصحابك عشان يدخلون مجموعتكم.</p></div><button class="close" onclick="document.getElementById('activeRoom').innerHTML=''">×</button></div>
+<div class="room-code">${r.id}</div><div class="room-actions"><button class="primary" onclick="copyRoom('${r.id}')">نسخ الرمز</button><button class="secondary" onclick="shareRoom('${r.id}')">مشاركة الدعوة</button></div>
+<h3 style="font-size:15px;margin-top:22px">اختار أفتارك</h3><div class="avatar-choice">${avatarSet.map(a=>`<button class="avatar ${a===myAvatar?'selected':''}" onclick="chooseAvatar('${a}','${r.id}')">${a}</button>`).join('')}</div>
+<h3 style="font-size:15px;margin-top:20px">اللاعبون</h3>${r.members.map(m=>`<div class="member"><span>${m.avatar}</span><b>${escapeHtml(m.name)}</b><small>محلياً</small></div>`).join('')}
+<div class="voice-box"><b>🎙️ المحادثة الصوتية</b><p>اختبار المايك يعمل على جهازك. المحادثة بين أجهزة مختلفة تحتاج خادم إشارات WebRTC وربط المجموعة بقاعدة بيانات.</p><div class="voice-controls"><button onclick="startLocalMic()">🎤 اختبار المايك</button><button onclick="stopLocalMic()">إيقاف المايك</button><span id="micStatus" class="notice">الميكروفون غير مشغّل</span></div></div>
+<div class="notice">حالياً المجموعات محفوظة على نفس المتصفح والجهاز فقط. دخول الأصدقاء من أجهزتهم يحتاج ربط Firebase أو خادم للمجموعات.</div></div>`;}
+function chooseAvatar(a,id){myAvatar=a;const r=rooms.find(x=>x.id===id);if(!r)return;r.members[0].avatar=a;saveRooms();showRoom(id);renderRooms();}
+async function shareRoom(code){const url=location.href.split('#')[0]+'#room='+code;if(navigator.share){try{await navigator.share({title:'دعوة للمربع',text:'تعالوا للمربع! رمز مجموعتنا: '+code,url});}catch(e){}}else copyRoom(code);}
+async function startLocalMic(){const status=document.getElementById('micStatus');try{localStream=await navigator.mediaDevices.getUserMedia({audio:true});status.textContent='الميكروفون يعمل على هذا الجهاز فقط ✓';status.style.color='#42d6a4';}catch(e){status.textContent='تعذّر تشغيل المايك: تحقق من الإذن واستخدم HTTPS';status.style.color='#ff8f9e';}}
+function stopLocalMic(){if(localStream){localStream.getTracks().forEach(t=>t.stop());localStream=null;}const s=document.getElementById('micStatus');if(s)s.textContent='تم إيقاف المايك';}
+renderRooms();
+
+
+// --- Expanded game pack for المربع ---
+const oldRender=render;
+const extendedTypes=['mafia','believe','know','culture','groupfast','math','order','missing','difference','changed','describe','taboo','opposites','synonyms','anagram'];
+const banks={
+ believe:[['الأخطبوط لديه ثلاثة قلوب.','صحيح',['صحيح','كذب'],0],['الشمس كوكب.','كذب',['صحيح','كذب'],1],['العسل الطبيعي قد يبقى صالحاً مدة طويلة جداً.','صحيح',['صحيح','كذب'],0],['الخفاش من الثدييات.','صحيح',['صحيح','كذب'],0]],
+ know:[['ما أكبر محيط في العالم؟',['الأطلسي','الهندي','الهادئ','المتجمد'],2],['كم عدد ألوان قوس قزح التقليدية؟',['5','6','7','8'],2],['ما عاصمة اليابان؟',['سيول','طوكيو','بكين','بانكوك'],1]],
+ culture:[['في أي قارة تقع البرازيل؟',['آسيا','أفريقيا','أمريكا الجنوبية','أوروبا'],2],['ما الغاز الذي تمتصه النباتات؟',['الأكسجين','ثاني أكسيد الكربون','النيتروجين','الهيدروجين'],1],['كم عدد كواكب المجموعة الشمسية؟',['7','8','9','10'],1]],
+ groupfast:[['أسرع حيوان بري؟',['الفهد','الحصان','الأسد','الغزال'],0],['كم دقيقة في ساعتين؟',['60','90','120','180'],2],['ما ناتج 9 × 7؟',['56','63','72','79'],1]],
+ math:[['ما ناتج 12 + 19؟',['29','31','32','33'],1],['أكمل: 2، 4، 8، 16، ؟',['18','24','30','32'],3],['ما ناتج 9 × 8؟',['64','72','81','89'],1]],
+ order:[['رتّب دورة حياة الفراشة: بيضة، ؟',['يرقة ثم شرنقة ثم فراشة','فراشة ثم يرقة ثم شرنقة','شرنقة ثم بيضة ثم يرقة'],0],['ما الترتيب المنطقي لليوم؟',['مساء، صباح، ظهر','صباح، ظهر، مساء','ظهر، مساء، صباح'],1]],
+ missing:[['أي عنصر يكمل المجموعة؟ تفاحة، موز، برتقال، ؟',['كرسي','عنب','قلم','حذاء'],1],['أي شيء ينقص أدوات الكتابة؟ قلم، ممحاة، ؟',['دفتر','ملعقة','كرة','وسادة'],0]],
+ difference:[['أي رمز مختلف؟',['🔵 🔵 🔵 🔴 🔵','🔵 🔵 🔵 🔵 🔵','🔵 🔵 🔵 🔵 🔵'],0],['أي مجموعة فيها شكل مختلف؟',['⭐ ⭐ 🌙 ⭐','🍎 🍎 🍎 🍎','🐱 🐱 🐱 🐱'],0]],
+ changed:[['تذكّر: 🟣 ⭐ 🟢 🔺 — أي رمز تغيّر في النسخة الجديدة؟ 🟣 ⭐ 🔵 🔺',['🟣','⭐','🔵','🔺'],2],['قبل: 🍎 🍌 🍇 — بعد: 🍎 🍐 🍇. ما الذي تغير؟',['التفاح','الموز إلى كمثرى','العنب'],1]],
+ describe:[['شيء نستخدمه لمعرفة الوقت وله عقارب أحياناً.',['ساعة','مرآة','مصباح','حقيبة'],0],['حيوان طويل الرقبة ويأكل أوراق الأشجار.',['فيل','زرافة','دب','ذئب'],1]],
+ taboo:[['صف كلمة "ثلج" دون قول: بارد، أبيض، شتاء.',['ماء متجمد','نار','رمل','خشب'],0],['صف "طائرة" دون قول: تطير، جناح، مطار.',['وسيلة نقل جوية','دراجة','سفينة','قطار'],0]],
+ opposites:[['ما ضد كلمة "شجاع"؟',['جريء','جبان','قوي','سريع'],1],['ما ضد كلمة "واسع"؟',['كبير','فسيح','ضيق','طويل'],2]],
+ synonyms:[['مرادف كلمة "سعيد"؟',['حزين','فرح','غاضب','متعب'],1],['مرادف كلمة "سريع"؟',['عاجل','بطيء','ثقيل','هادئ'],0]],
+ anagram:[['رتّب الحروف: ب ا ت ك',['كتاب','كاتب','كتيب','تكاب'],0],['رتّب الحروف: ة ر ج ش',['شجرة','جرشة','شرجة','جشرة'],0]]
+};
+let customIndex=0,customScore=0,mafiaPlayers=[],mafiaRoles=[],mafiaReveal=0,customAnswered=false;
+const titles={mafia:'لعبة المافيا 🕵️',believe:'هل تصدق؟ 🤥',know:'مين يعرف أكثر؟ 🏆',culture:'تحدي الثقافة 🌍',groupfast:'تحدي السرعة الجماعي ⚡',math:'تحدي الأرقام 🔢',order:'ترتيب الصور 🖼️',missing:'اكتشف الشيء الناقص 🧩',difference:'أين الاختلاف؟ 👀',changed:'ماذا تغير؟ 🔄',describe:'خمن من الوصف 🗣️',taboo:'وصف بدون كلمات ممنوعة 🚫',opposites:'كلمة وضدها ↔️',synonyms:'مرادفات الكلمات 📚',anagram:'تحدي الحروف العشوائية 🔠'};
+const customOldOpen=openGame;
+openGame=function(type){if(!extendedTypes.includes(type)){customOldOpen(type);return;}current=type;idx=0;customIndex=0;customScore=0;customAnswered=false;clearInterval(timer);$('modal').classList.add('show');if(type==='mafia')setupMafia();else renderExtended();};
+function renderExtended(){
+ const arr=banks[current]||[];if(customIndex>=arr.length){$('gameBody').innerHTML=`<div class="visual">🏆</div><h2 style="text-align:center">انتهت اللعبة!</h2><p class="question" style="text-align:center">نتيجتك ${customScore} من ${arr.length}</p><button class="primary" onclick="openGame('${current}')">العب مرة ثانية</button>`;return;}
+ const q=arr[customIndex];header(titles[current],`السؤال ${customIndex+1} من ${arr.length} · النقاط ${customScore}`);
+ $('gameBody').innerHTML+=`<div class="visual" style="font-size:27px;text-align:center;padding:20px">${q[0]}</div><div class="answers">${q[2].map((a,i)=>`<button class="answer" onclick="answerExtended(this,${i===q[3]})">${a}</button>`).join('')}</div><div class="feedback" id="feedback"></div><div class="modal-actions"><button class="primary" onclick="nextExtended()">التالي ←</button></div>`;
+ customAnswered=false;
+}
+function answerExtended(btn,ok){if(customAnswered)return;customAnswered=true;document.querySelectorAll('#gameBody .answer').forEach(x=>x.disabled=true);btn.classList.add(ok?'correct':'wrong');if(ok){customScore++;$('feedback').textContent='إجابة صحيحة! +1';}else $('feedback').textContent='مو صحيح، جرّب بالسؤال القادم.';}
+function nextExtended(){if(!customAnswered){$('feedback').textContent='اختر إجابة أولاً';return;}customIndex++;renderExtended();}
+function setupMafia(){
+ header(titles.mafia,'أدخلوا أسماء اللاعبين، ثم مرروا الجهاز لكل لاعب ليعرف دوره بسرية.');
+ $('gameBody').innerHTML+=`<p class="question">اللعبة المحلية تدعم من 3 إلى 20 لاعباً. اختاروا لاعباً واحداً مافيا والبقية مواطنون.</p><textarea id="mafiaNames" class="input" rows="5" placeholder="كل اسم في سطر&#10;عبدالله&#10;سعد&#10;خالد"></textarea><button class="primary" onclick="dealMafia()">توزيع الأدوار</button><div id="mafiaArea"></div>`;
+}
+function dealMafia(){const names=$('mafiaNames').value.split('\n').map(x=>x.trim()).filter(Boolean);if(names.length<3||names.length>20){alert('أدخل من 3 إلى 20 اسماً، كل اسم في سطر.');return;}mafiaPlayers=names;mafiaRoles=names.map((n,i)=>({name:n,role:'مواطن'}));const m=Math.floor(Math.random()*names.length);mafiaRoles[m].role='مافيا';mafiaReveal=0;showMafiaRole();}
+function showMafiaRole(){if(mafiaReveal>=mafiaRoles.length){$('mafiaArea').innerHTML='<h3>🌙 انتهى توزيع الأدوار</h3><p class="question">ابدؤوا النقاش والتصويت! اتفقوا على وقت الجولة ثم صوّتوا شفهياً.</p><button class="primary" onclick="setupMafia()">لعبة جديدة</button>';return;}const p=mafiaRoles[mafiaReveal];$('mafiaArea').innerHTML=`<div class="room-card" style="margin-top:15px;text-align:center"><h3>مرّر الجهاز إلى: ${escapeHtml(p.name)}</h3><p>تأكد أن بقية اللاعبين لا يشاهدون الشاشة.</p><button class="primary" onclick="this.nextElementSibling.style.display='block';this.style.display='none'">اكشف دوري</button><div style="display:none;padding:20px;font-size:28px">${p.role==='مافيا'?'🕵️ أنت المافيا':'🧑‍🤝‍🧑 أنت مواطن'}</div><button class="secondary" style="margin-top:12px" onclick="mafiaReveal++;showMafiaRole()">إخفاء وتمرير للاعب التالي</button></div>`;}
+function renderAccount(){const area=$('accountArea');const account=JSON.parse(localStorage.getItem('almoraba_profile')||'null');if(account){area.innerHTML=`<div class="member"><span>${account.avatar||'🦊'}</span><b>${escapeHtml(account.nick)}</b><small>${escapeHtml(account.email)}</small></div><button class="secondary" onclick="logoutLocal()">تسجيل خروج</button><p class="smallmuted">هذا الملف محفوظ على هذا المتصفح فقط.</p>`;return;}area.innerHTML=`<div class="account-row"><input id="regNick" class="input" placeholder="اسم اللاعب المميز"><input id="regEmail" class="input" type="email" placeholder="البريد الإلكتروني"><input id="regPass" class="input" type="password" placeholder="كلمة المرور (8 أحرف على الأقل)"><input id="regPass2" class="input" type="password" placeholder="تأكيد كلمة المرور"></div><div class="controlrow"><button class="primary" onclick="registerLocal()">إنشاء حساب تجريبي</button></div><p class="smallmuted">تنبيه: التسجيل هنا محلي وتجريبي، ولا يرسل رسالة تحقق ولا يتيح تسجيل الدخول من أجهزة أخرى. الحساب الحقيقي يحتاج Firebase Authentication وقواعد بيانات.</p>`;}
+async function registerLocal(){const nick=$('regNick').value.trim(),email=$('regEmail').value.trim(),pass=$('regPass').value,pass2=$('regPass2').value;if(nick.length<3||!email.includes('@')||pass.length<8||pass!==pass2){alert('تحقق من الاسم والبريد وكلمة المرور (8 أحرف على الأقل) وتطابق التأكيد.');return;}const profile={nick,email,avatar:myAvatar,created:Date.now()};localStorage.setItem('almoraba_profile',JSON.stringify(profile));renderAccount();}
+function logoutLocal(){localStorage.removeItem('almoraba_profile');renderAccount();}
+renderAccount();
+// Room utilities: local lobby options and chat notes.
+function addLocalPlayer(){const r=rooms.find(x=>x.id===activeRoomId);if(!r)return;const n=prompt('اسم اللاعب الإضافي على هذا الجهاز:');if(!n)return;if(r.members.length>=20){alert('وصلت المجموعة إلى 20 لاعباً.');return;}r.members.push({name:n.trim(),avatar:avatarSet[r.members.length%avatarSet.length]});saveRooms();showRoom(r.id);renderRooms();}
+const previousShowRoom=showRoom;
+showRoom=function(id){previousShowRoom(id);const r=rooms.find(x=>x.id===id);if(!r)return;const panel=$('activeRoom').querySelector('.room-card');if(!panel)return;const controls=document.createElement('div');controls.innerHTML=`<div class="controlrow"><button class="secondary" onclick="addLocalPlayer()">＋ إضافة لاعب محلي</button><button class="secondary" onclick="voteGame()">🗳️ تصويت اللعبة القادمة</button><button class="secondary" onclick="toggleTeams()">تقسيم فرق</button></div><div class="chatlog" id="roomChat">💬 دردشة الغرفة المحلية جاهزة.</div><div class="controlrow"><input id="chatInput" placeholder="اكتب رسالة..." style="flex:1"><button class="primary" onclick="sendLocalChat()">إرسال</button></div>`;panel.appendChild(controls);};
+function sendLocalChat(){const i=$('chatInput'),log=$('roomChat');if(!i||!log||!i.value.trim())return;log.innerHTML+=`<div>💬 <b>أنا:</b> ${escapeHtml(i.value.trim())}</div>`;i.value='';log.scrollTop=log.scrollHeight;}
+function voteGame(){const choices=Object.entries(titles).map(([k,v])=>k+' — '+v).join('\n');const v=prompt('اكتب اسم اللعبة التي تصوّت لها:\n'+choices);if(v)alert('تم تسجيل اقتراحك محلياً: '+v+' — التصويت المشترك بين الأجهزة يحتاج خادماً.');}
+function toggleTeams(){const r=rooms.find(x=>x.id===activeRoomId);if(!r)return;const a=[],b=[];r.members.forEach((m,i)=>(i%2?a:b).push(m.name));alert('الفريق A: '+b.join('، ')+'\nالفريق B: '+a.join('، '));}
+
+</script>
+</body></html>
